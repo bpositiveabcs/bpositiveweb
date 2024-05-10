@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>About us</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+  <style>
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+
+    body, html {
+      height: 100%;
+      line-height: 1.8;
+    }
+
+    /* Full height image header */
+    .bgimg-1 {
+      background-position: center;
+      background-size: cover;
+      background-image: url("./imagini/bannerinvers.png");
+      height: 300px;
+    }
+
+    .w3-bar .w3-button {
+      padding: 16px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-card" style="background-color: #f0e7e7" id="myNavbar">
+    <a href="./index.html" class="w3-bar-item w3-button w3-wide"><img src="./imagini/logocrem.png" style="height: 30px"></a>
+    <!-- Right-sided navbar links -->
+    <div class="w3-right w3-hide-small" style="color: #A10135">
+      <a href="#about" class="w3-bar-item w3-button">EVENTS</a>
+      <a href="#team" class="w3-bar-item w3-button"><i class="fa fa-user"></i> BENEFITS</a>
+      <a href="./signin.html" class="w3-bar-item w3-button"><i class="fa fa-th"></i> ACCOUNT</a>
+    </div>
+    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+</div>
+
+<!-- Sidebar on small screens when clicking the menu icon -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close &times;</a>
+  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">EVENTS</a>
+  <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button">BENEFITS</a>
+  <a href="#work" onclick="w3_close()" class="w3-bar-item w3-button">ACCOUNT</a>
+</nav>
+
+<!-- Header with full-height image -->
+<header class="bgimg-1 w3-display-container" id="home"></header>
+
+<!-- About Section -->
+<div class="w3-container" style="padding:128px 16px; background-color: #f0e7e7" id="about">
+  <h3 class="w3-center">ABOUT US</h3>
+  <p class="w3-center w3-large">Key features of our project</p>
+  <div class="w3-row-padding w3-center" style="margin-top:64px">
+    <div class="w3-quarter">
+      <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i>
+      <p class="w3-large">Technology Driving Change</p>
+      <p>Harness the power of technology to revolutionize blood donation. Our app integrates cutting-edge features for easy scheduling, real-time updates, and personalized rewards. Embrace the future of blood donation and make an impact efficiently with the tap of a button.</p>
+    </div>
+    <div class="w3-quarter">
+      <i class="fa fa-heart w3-margin-bottom w3-jumbo"></i>
+      <p class="w3-large">Passion for Saving Lives</p>
+      <p>Join our blood donation community driven by passion for making a difference. Every donation you make through our app contributes directly to saving lives. Feel the impact of your generosity and the passion shared by our community of donors.</p>
+    </div>
+    <div class="w3-quarter">
+      <i class="fa fa-diamond w3-margin-bottom w3-jumbo"></i>
+      <p class="w3-large">Quality</p>
+      <p>Experience top-tier quality in every aspect of your donation journey. From the moment you sign up to when your donation reaches those in need, we ensure the highest standards of safety, professionalism, and care. Your health and well-being are our priority.</p>
+    </div>
+    <div class="w3-quarter">
+      <i class="fas fa-hand-holding-heart w3-margin-bottom w3-jumbo"></i>
+      <p class="w3-large">Supporting Each Other</p>
+      <p>Together, we support a noble cause that touches countless lives. Our supportive network empowers you to donate with confidence, knowing you're part of a caring community dedicated to helping others. Receive and give support through every step of your donation experience.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Promo Section "Statistics" -->
+<div class="w3-container w3-row w3-center w3-padding-32" style="background-color: #A10135; color: white">
+  <p style="font-size: 20px">OUR MOTTO</p>
+  <span style="font-family: Garamond, serif; font-size: 40px">Be someone's hero today!</span>
+</div>
+
+<!-- Team Section -->
+<div class="w3-container" style="padding:128px 16px; background-color: #f0e7e7" id="team">
+  <h3 class="w3-center">THE TEAM</h3>
+  <div class="w3-row-padding" style="margin-top:64px">
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-card" style="background-color: white">
+        <img src="./imagini/sabina.png" alt="Sabina" style="width:100%">
+        <div class="w3-container">
+          <h3>Sabina-Eleny Andrei-Nicoară</h3>
+          <p class="w3-opacity">UBB Computer Science Student</p>
+          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> sabina.andrei@stud.ubbcluj.ro</button></p>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-card" style="background-color: white">
+        <img src="/w3images/team1.jpg" alt="Andreea" style="width:100%">
+        <div class="w3-container">
+          <h3>Andreea-Marina Ion</h3>
+          <p class="w3-opacity">UBB Computer Science Student</p>
+          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> andreea.marina.ion@stud.ubbcluj.ro</button></p>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-card" style="background-color: white">
+        <img src="./imagini/bianca.png" alt="Bianca" style="width:100%">
+        <div class="w3-container">
+          <h3>Bianca-Liana Fürtös</h3>
+          <p class="w3-opacity">UBB Computer Science Student</p>
+          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> bianca.liana.furtos@stud.ubbcluj.ro</button></p>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-card" style="background-color: white">
+        <img src="./imagini/cristiana.png" alt="Cristiana" style="width:100%">
+        <div class="w3-container">
+          <h3>Cristiana-Gabriela Pătroi</h3>
+          <p class="w3-opacity">UBB Computer Science Student</p>
+          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> cristiana.patroi@stud.ubbcluj.ro</button></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Promo Section "Statistics" -->
+<div class="w3-container w3-row w3-center w3-padding-48" style="background-color: #A10135; color: white">
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">17+</span>
+    <br>Partners
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">89+</span>
+    <br>Successful donations
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">55+</span>
+    <br>Lives saved
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">150+</span>
+    <br>Users
+  </div>
+</div>
+
+<!-- Contact Section -->
+<div class="w3-container" style="padding:128px 16px; background-color: #f0e7e7" id="contact">
+  <h3 class="w3-center">OUR STORY</h3>
+  <div style="margin:72px">
+    It all started during our computer science studies at university. We were always brainstorming ways to apply our coding skills to make a positive impact in our community. One day, over coffee and laptops, we hit upon the idea of creating a mobile app to streamline blood donation processes in Cluj.
+    For weeks, we poured our hearts into this project. Late nights turned into early mornings as we conducted research, interviewed medical professionals, and fine-tuned every detail of the app. We encountered challenges along the way, from tricky coding bugs to navigating the complexities of the healthcare system, but our determination never wavered.
+    Finally, the day arrived when we launched "B-Positive." It was incredible to see the impact almost immediately. People in Cluj started registering as blood donors through the app, receiving alerts when donations were urgently needed, and easily finding nearby donation centers.
+    The response from our community was incredible. Within weeks, "B-Positive" gained thousands of downloads and significantly increased blood donations in Cluj. Local hospitals praised the app for its role in saving lives during emergencies.
+    Today, we continue to improve and expand "B-Positive." Our journey is proof that when passionate individuals come together with a shared goal, there's no limit to what we can achieve. We're excited to keep pushing boundaries and harnessing technology for good, right here in Cluj and beyond.
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-padding-32" style="background-color: #A10135; color: white">
+  <a href="#home" class="w3-button" style="background-color: #f0e7e7; color: #A10135"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+  <div class="w3-large w3-section" style="font-size: 12px">
+    <span style="margin:10px"><i class="fa fa-map-marker fa-fw w3-hover-opacity"></i> Cluj-Napoca, Romania</span>
+    <span style="margin:10px"><i class="fa fa-phone fa-fw w3-hover-opacity"></i> Phone: 0757848416</span>
+    <span style="margin:10px"><i class="fa fa-envelope fa-fw w3-hover-opacity"> </i> Email: bpositiveeeee@gmail.com</span>
+  </div>
+</footer>
+
+<script>
+  function onClick(element) {
+    document.getElementById("img01").src = element.src;
+    document.getElementById("modal01").style.display = "block";
+    var captionText = document.getElementById("caption");
+    captionText.innerHTML = element.alt;
+  }
+
+  var mySidebar = document.getElementById("mySidebar");
+
+  function w3_open() {
+    if (mySidebar.style.display === 'block') {
+      mySidebar.style.display = 'none';
+    } else {
+      mySidebar.style.display = 'block';
+    }
+  }
+  function w3_close() {
+    mySidebar.style.display = "none";
+  }
+</script>
+
+</body>
+</html>
