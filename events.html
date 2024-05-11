@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Events</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
+
+        .bgimg-1 {
+            background-position: center;
+            background-size: cover;
+            background-image: url("./imagini/bannerinvers.png");
+            height: 300px;
+        }
+
+        .w3-bar .w3-button {
+            padding: 16px;
+        }
+
+        body{
+            background-color: rgba(240, 231, 231, 0.5);
+        }
+
+        .hrEvent{
+            background-color: black;
+            height: 0.5px;
+        }
+
+
+        .login__field {
+            padding: 10px 0px;
+            position: relative;
+            color: #f0e7e7;
+        }
+
+        .edit__field {
+            padding: 10px 0px;
+            position: relative;
+            color: #A10135;
+        }
+
+        .login__icon {
+            position: absolute;
+            top: 20px;
+            color: #f0e7e7;
+        }
+
+        .login__input {
+            border: none;
+            border-bottom: 2px solid #D1D1D4;
+            background: none;
+            font-weight: 700;
+            width: 100%;
+            transition: .2s;
+            color: #f0e7e7;
+        }
+
+        .login__input:active,
+        .login__input:focus,
+        .login__input:hover {
+            outline: none;
+            border-bottom-color: #fdc3c3;
+        }
+
+        .login__input::placeholder {
+            color: #f0e7e7;
+        }
+
+        .edit__input {
+            border: none;
+            border-bottom: 2px solid #D1D1D4;
+            background: none;
+            font-weight: 700;
+            width: 100%;
+            transition: .2s;
+            color: #A10135;
+        }
+
+        .edit__input:active,
+        .edit__input:focus,
+        .edit__input:hover {
+            outline: none;
+            border-bottom-color: #fdc3c3;
+        }
+        .edit__input::placeholder {
+            color: #A10135;
+        }
+
+        .submitButton:focus {
+            border-color: #570c0c;
+            outline: none;
+        }
+        .submitButton {
+            align-items: center;
+            justify-content: center;
+            margin: 20px;
+            padding: 10px 20px;
+            border-radius: 26px;
+            border: 1px solid #D4D3E8;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #e57d7d;
+            box-shadow: 0px 2px 2px #d00909;
+            cursor: pointer;
+            transition: .2s;
+            width: 50%;
+        }
+
+        .buttonCoupons{
+            align-items: center;
+            justify-content: center;
+            margin: 20px;
+            padding: 10px 10px;
+            border-radius: 26px;
+            border: 1px solid #D4D3E8;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #A10135;
+            box-shadow: 0px 2px 2px #d00909;
+            cursor: pointer;
+            transition: .2s;
+            width: 90%;
+        }
+
+        .submitButtonbuttonCoupons:focus {
+            border-color: #570c0c;
+            outline: none;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+    <div class="w3-bar w3-card" style="background-color: #f0e7e7" id="myNavbar">
+        <a href="./index.html" class="w3-bar-item w3-button w3-wide"><img src="./imagini/logocrem.png" style="height: 30px"></a>
+        <!-- Right-sided navbar links -->
+        <div class="w3-right w3-hide-small" style="color: #A10135">
+            <a href="./contact.html" class="w3-bar-item w3-button">ABOUT US</a>
+            <a href="./benefits.html" class="w3-bar-item w3-button"> BENEFITS</a>
+            <a href="./signin.html" class="w3-bar-item w3-button"><i class="fa fa-user"></i> ACCOUNT</a>
+        </div>
+        <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+</div>
+
+<!-- Sidebar on small screens when clicking the menu icon -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close &times;</a>
+    <a href="./events.html" onclick="w3_close()" class="w3-bar-item w3-button">EVENTS</a>
+    <a href="./benefits.html" onclick="w3_close()" class="w3-bar-item w3-button">BENEFITS</a>
+    <a href="./signin.html" onclick="w3_close()" class="w3-bar-item w3-button">ACCOUNT</a>
+</nav>
+
+<!-- Header with full-height image -->
+<header class="bgimg-1 w3-display-container" id="home"></header>
+<!-- Page Container -->
+<div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">
+    <!-- The Grid -->
+    <div class="w3-row">
+        <!-- Left Column -->
+        <div class="w3-col m3">
+            <!-- Profile -->
+            <div class="w3-card w3-round" style="background-color: rgba(161,1,53,0.8); color:#f0e7e7">
+                <div class="w3-container" >
+                    <h4 class="w3-center">Username</h4>
+                    <p class="w3-center"><img src="./imagini/defaultUser.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
+                    <hr style="background-color: #f0e7e7; height: 0.5px;">
+                    <p><i class="fa fa-user fa-fw w3-margin-right"></i> Nume si prenume</p>
+                    <p><i class="fa fa-envelope fa-fw w3-margin-right"></i> Email</p>
+                    <p><i class="fa fa-home fa-fw w3-margin-right"></i> Adresa</p>
+                </div>
+            </div>
+            <br>
+
+            <div class="w3-card w3-round">
+                <div>
+                    <button id="editProfileButton" class="w3-button w3-block w3-left-align" style="background-color: rgba(161,1,53,0.8);color:#f0e7e7"><i class="fa fa-pencil fa-fw w3-margin-right"></i> Edit profile</button>
+                </div>
+            </div>
+            <br>
+
+            <!-- Student -->
+            <div class="w3-card w3-round w3-hide-small">
+                <div class="w3-container" style="background-color: rgba(161,1,53,0.8);color:#f0e7e7">
+                    <p onclick="myFunction('StudentForm')"><i class="fa fa-university fa-fw w3-margin-right"></i>Are you a student?</p>
+                    <div id="StudentForm" class="w3-hide w3-container">
+                        <form>
+                            <div>
+                                <div class="login__field">
+                                    <input type="text" class="login__input" placeholder="University" required>
+                                </div>
+                                <div class="login__field">
+                                    <input type="text" class="login__input" placeholder="Faculty" required>
+                                </div>
+                                <div class="login__field">
+                                    <input type="text" class="login__input" placeholder="Domain" required>
+                                </div>
+                                <div class="login__field">
+                                    <input type="text" class="login__input" placeholder="Specialization" required>
+                                </div>
+                                <div class="login__field">
+                                    <input type="text" class="login__input" placeholder="Year" required>
+                                </div>
+                                <div class="login__field">
+                                    <input type="text" class="login__input" placeholder="Group" required>
+                                </div>
+                                <div class="login__field">
+                                    <input type="text" class="login__input" placeholder="Semigroup" required>
+                                </div>
+                                <div class="login__field">
+                                    <label for="identityCardInput" class="login__label">Identity Card (PDF files only)</label>
+                                    <input type="file" id="identityCardInput" class="login__input" required>
+                                </div>
+                                <button class="submitButton">
+                                    Submit
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            <!-- Lists-->
+            <div class="w3-card w3-round">
+                <div>
+                    <button onclick="myFunction('Demo1')" class="w3-button w3-block w3-left-align" style="background-color:rgba(161,1,53,0.8); color:#f0e7e7"><i class="fa fa-circle-o-notch fa-fw w3-margin-right"></i> My Coupons</button>
+                    <div id="Demo1" class="w3-hide w3-container" style="background-color: #f0e7e7">
+                        <p>List of coupons</p>
+                        <button class="buttonCoupons">Get more coupons</button>
+                    </div>
+                    <button onclick="myFunction('Demo2')" class="w3-button w3-block w3-left-align" style="background-color: rgba(161,1,53,0.8);color:#f0e7e7"><i class="fa fa-calendar-check-o fa-fw w3-margin-right"></i> My Events</button>
+                    <div id="Demo2" class="w3-hide w3-container" style="background-color: #f0e7e7">
+                        <p>List of events</p>
+                    </div>
+                    <button onclick="myFunction('Demo3')" class="w3-button w3-block w3-left-align" style="background-color: rgba(161,1,53,0.8);color:#f0e7e7"><i class="fa fa-users fa-fw w3-margin-right"></i> My Medical Information</button>
+                    <div id="Demo3" class="w3-hide w3-container" style="background-color: #f0e7e7">
+                        <p>Medical info files</p>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            <!-- Alert Box -->
+            <div class="w3-container w3-display-container w3-round w3-border w3-theme-border w3-margin-bottom w3-hide-small" style="background-color: rgba(161,1,53,0.5); color:#f0e7e7">
+                <span onclick="this.parentElement.style.display='none'" class="w3-button w3-display-topright">
+                  <i class="fa fa-remove" style="color: #f0e7e7"></i>
+                </span>
+                <p><strong>Hey!</strong></p>
+                <p>Don't forget to invite your friends to use this app!</p>
+            </div>
+
+            <!-- End Left Column -->
+        </div>
+
+        <!-- Middle Column -->
+        <div class="w3-col m9">
+
+            <div class="w3-row-padding">
+                <div class="w3-col m12">
+
+
+                    <div class="w3-container w3-card w3-round w3-margin-bottom" style="background-color: #f0e7e7"><br>
+                        <h4>Event name</h4><br>
+                        <p>Description</p>
+                        <hr class="hrEvent">
+                        <p>Center:</p>
+                        <p>Begins:</p>
+                        <p>Ends:</p>
+                        <p>Number of participants:</p>
+                        <p>Requirements:</p>
+                        <button type="button" class="w3-button w3-margin-bottom" style="background-color: #A10135; color: #f0e7e7">Join</button>
+                    </div>
+
+                    <div class="w3-container w3-card w3-round w3-margin-bottom" style="background-color: #f0e7e7"><br>
+                        <h4>Event name</h4><br>
+                        <p>Description</p>
+                        <hr class="hrEvent">
+                        <p>Center:</p>
+                        <p>Begins:</p>
+                        <p>Ends:</p>
+                        <p>Number of participants:</p>
+                        <p>Requirements:</p>
+                        <button type="button" class="w3-button w3-margin-bottom" style="background-color: #A10135; color: #f0e7e7">Join</button>
+                    </div>
+
+                </div>
+            </div>
+            <!-- End Middle Column -->
+        </div>
+        </div>
+
+        <!-- End Grid -->
+    </div>
+
+    <!-- End Page Container -->
+</div>
+<br>
+
+<footer class="w3-center w3-padding-32" style="background-color: #A10135; color: #f0e7e7">
+    <a href="#home" class="w3-button" style="background-color: #f0e7e7; color: #A10135"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+    <div class="w3-large w3-section" style="font-size: 12px">
+        <span style="margin:10px"><i class="fa fa-map-marker fa-fw w3-hover-opacity"></i> Cluj-Napoca, Romania</span>
+        <span style="margin:10px"><i class="fa fa-phone fa-fw w3-hover-opacity"></i> Phone: 0712345689</span>
+        <span style="margin:10px"><i class="fa fa-envelope fa-fw w3-hover-opacity"> </i> Email: bpositiveeeee@gmail.com</span>
+    </div>
+</footer>
+
+
+<!-- Fereastra modală pentru editarea profilului -->
+<div id="editProfileModal" class="w3-modal" style="display: none;">
+    <div class="w3-modal-content w3-animate-zoom" style="width: 50%;">
+        <div class="w3-container" style="background-color: #f0e7e7; color: #A10135; padding: 20px;">
+            <span onclick="closeEditProfileModal()" class="w3-button w3-display-topright">&times;</span>
+            <h2>Edit Profile</h2>
+            <!-- Formularul pentru editarea profilului -->
+            <form>
+                <div class="edit__field">
+                    <input type="text" class="edit__input" placeholder="First name" required>
+                </div>
+                <div class="edit__field">
+                    <input type="email" class="edit__input" placeholder="Last name" required>
+                </div>
+                <div class="edit__field">
+                    <input type="text" class="edit__input" placeholder="CNP" required>
+                </div>
+                <div class="edit__field">
+                    <input type="date" class="edit__input" placeholder="Birth Date" required>
+                </div>
+                <div class="edit__field">
+                    <input type="text" class="edit__input" placeholder="Sex" required>
+                </div>
+                <div class="edit__field">
+                    <input type="text" class="edit__input" placeholder="Country" required>
+                </div>
+                <div class="edit__field">
+                    <input type="text" class="edit__input" placeholder="County" required>
+                </div>
+                <div class="edit__field">
+                    <input type="text" class="edit__input" placeholder="City/Town" required>
+                </div>
+                <div class="edit__field">
+                    <input type="text" class="edit__input" placeholder="Street" required>
+                </div>
+                <div class="edit__field">
+                    <input type="text" class="edit__input" placeholder="No." required>
+                </div>
+                <div class="edit__field">
+                    <input type="text" class="edit__input" placeholder="Bl." required>
+                </div>
+                <div class="edit__field">
+                    <input type="text" class="edit__input" placeholder="Ap." required>
+                </div>
+                <div class="edit__field">
+                    <input type="text" class="edit__input" placeholder="Floor" required>
+                </div>
+                <div class="edit__field">
+                    <input type="text" class="edit__input" placeholder="Telephone" required>
+                </div>
+                <div class="edit__field">
+                    <input type="email" class="edit__input" placeholder="Email" required>
+                </div>
+                <div class="edit__field">
+                    <input type="password" class="edit__input" placeholder="Change password" required>
+                </div>
+                <div class="edit__field">
+                    <input type="password" class="edit__input" placeholder="Confirm new password" required>
+                </div>
+                <button type="submit" class="submitButton" style="width: 50%;">Save Changes</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!-- Fereastra modală pentru obținerea mai multor cupoane -->
+<div id="couponsModal" class="w3-modal" style="display: none;">
+    <div class="w3-modal-content w3-animate-zoom" style="width: 560px;">
+        <div class="w3-container" style="background-color: rgba(240,231,231,0.5); color: #A10135; padding: 20px;">
+            <span onclick="closeCouponsModal()" class="w3-button w3-display-topright">&times;</span>
+            <h2>Get More Coupons</h2>
+            <p>Your points: X</p>
+            <hr>
+            <form id="couponsForm">
+                <div class="checkbox-item">
+                    <label>
+                        <input type="checkbox" name="couponCarturesti" value="couponCarturesti">
+                        <span>Carturesti Coupon | Points: 5</span>
+                        <p><img src="./imagini/cupoane/cupon_carturesti.png" alt="Coupon Carturesti" height="250px"></p>
+                    </label>
+                </div>
+                <div class="checkbox-item">
+                    <label>
+                        <input type="checkbox" name="couponCatena" value="couponCatena">
+                        <span>Catena Coupon | Points: 5</span>
+                        <p><img src="./imagini/cupoane/cupon_catena.png" alt="Coupon Catena" height="250px"></p>
+                    </label>
+                </div>
+                <div class="checkbox-item">
+                    <label>
+                        <input type="checkbox" name="couponCinemacity" value="couponCinemacity">
+                        <span>Cinemacity Coupon | Points: 5</span>
+                        <p><img src="./imagini/cupoane/cupon_cinemacity.png" alt="Coupon Cinemacity" height="250px"></p>
+                    </label>
+                </div>
+                <div class="checkbox-item">
+                    <label>
+                        <input type="checkbox" name="couponDecathlon" value="couponDecathlon">
+                        <span>Decathlon Coupon | Points: 5</span>
+                        <p><img src="./imagini/cupoane/cupon_decathlon.png" alt="Coupon Decathlon" height="250px"></p>
+                    </label>
+                </div>
+                <div class="checkbox-item">
+                    <label>
+                        <input type="checkbox" name="couponDiverta" value="couponDiverta">
+                        <span>Diverta Coupon | Points: 5</span>
+                        <p><img src="./imagini/cupoane/cupon_diverta.png" alt="Coupon Diverta" height="250px"></p>
+                    </label>
+                </div>
+                <div class="checkbox-item">
+                    <label>
+                        <input type="checkbox" name="couponDrmax" value="couponDrmax">
+                        <span>Drmax Coupon | Points: 5</span>
+                        <p><img src="./imagini/cupoane/cupon_drmax.png" alt="Coupon Drmax" height="250px"></p>
+                    </label>
+                </div>
+                <div class="checkbox-item">
+                    <label>
+                        <input type="checkbox" name="couponGuildhall" value="couponGuildhall">
+                        <span>Guildhall Coupon | Points: 5</span>
+                        <p><img src="./imagini/cupoane/cupon_guildhall.png" alt="Coupon Guildhall" height="250px"></p>
+                    </label>
+                </div>
+                <div class="checkbox-item">
+                    <label>
+                        <input type="checkbox" name="couponIabilet" value="couponIabilet">
+                        <span>Iabilet Coupon | Points: 5</span>
+                        <p><img src="./imagini/cupoane/cupon_iabilet.png" alt="Coupon Iabilet" height="250px"></p>
+                    </label>
+                </div>
+                <div class="checkbox-item">
+                    <label>
+                        <input type="checkbox" name="couponLemnulVerde" value="couponLemnulVerde">
+                        <span>LemnulVerde Coupon | Points: 5</span>
+                        <p><img src="./imagini/cupoane/cupon_lemnulverde.png" alt="Coupon LemnulVerde" height="250px"></p>
+                    </label>
+                </div>
+                <div class="checkbox-item">
+                    <label>
+                        <input type="checkbox" name="couponLensa" value="couponLensa">
+                        <span>Lensa Coupon | Points: 5</span>
+                        <p><img src="./imagini/cupoane/cupon_lensa.png" alt="Coupon Lensa" height="250px"></p>
+                    </label>
+                </div>
+                <div class="checkbox-item">
+                    <label>
+                        <input type="checkbox" name="couponMarty" value="couponMarty">
+                        <span>Marty Coupon | Points: 5</span>
+                        <p><img src="./imagini/cupoane/cupon_marty.png" alt="Coupon Marty" height="250px"></p>
+                    </label>
+                </div>
+                <div class="checkbox-item">
+                    <label>
+                        <input type="checkbox" name="couponMeron" value="couponMeron">
+                        <span>Meron Coupon | Points: 5</span>
+                        <p><img src="./imagini/cupoane/cupon_meron.png" alt="Coupon Meron" height="250px"></p>
+                    </label>
+                </div>
+                <div class="checkbox-item">
+                    <label>
+                        <input type="checkbox" name="couponPizzaHut" value="couponPizzaHut">
+                        <span>PizzaHut Coupon | Points: 5</span>
+                        <p><img src="./imagini/cupoane/cupon_pizzahut.png" alt="Coupon PizzaHut" height="250px"></p>
+                    </label>
+                </div>
+                <div class="checkbox-item">
+                    <label>
+                        <input type="checkbox" name="couponPralina" value="couponPralina">
+                        <span>Pralina Coupon | Points: 5</span>
+                        <p><img src="./imagini/cupoane/cupon_pralina.png" alt="Coupon Pralina" height="250px"></p>
+                    </label>
+                </div>
+                <div class="checkbox-item">
+                    <label>
+                        <input type="checkbox" name="couponStarbucks " value="couponStarbucks ">
+                        <span>Starbucks Coupon | Points: 5</span>
+                        <p><img src="./imagini/cupoane/cupon_starbucks.png" alt="Coupon Starbucks " height="250px"></p>
+                    </label>
+                </div>
+                <div class="checkbox-item">
+                    <label>
+                        <input type="checkbox" name="couponVersus" value="couponVersus">
+                        <span>Versus Coupon | Points: 5</span>
+                        <p><img src="./imagini/cupoane/cupon_versus.png" alt="Coupon Versus" height="250px"></p>
+                    </label>
+                </div>
+                <div class="checkbox-item">
+                    <label>
+                        <input type="checkbox" name="couponVmax" value="couponVmax">
+                        <span>Vmax Coupon | Points: 5</span>
+                        <p><img src="./imagini/cupoane/cupon_vmax.png" alt="Coupon Vmax" height="250px"></p>
+                    </label>
+                </div>
+                <button class="buttonCoupons">Get selected coupons</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Accordion
+    function myFunction(id) {
+        var x = document.getElementById(id);
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+            x.previousElementSibling.style.backgroundColor = "rgba(161,1,53,0.8)";
+        } else {
+            x.className = x.className.replace("w3-show", "");
+            x.previousElementSibling.style.backgroundColor = "rgba(161,1,53,0.8)";
+        }
+    }
+
+    // Used to toggle the menu on smaller screens when clicking on the menu button
+    function openNav() {
+        var x = document.getElementById("navDemo");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }
+
+    function onClick(element) {
+    document.getElementById("img01").src = element.src;
+    document.getElementById("modal01").style.display = "block";
+    var captionText = document.getElementById("caption");
+    captionText.innerHTML = element.alt;
+    }
+
+    var mySidebar = document.getElementById("mySidebar");
+
+    function w3_open() {
+        if (mySidebar.style.display === 'block')
+            mySidebar.style.display = 'none';
+        else
+            mySidebar.style.display = 'block';
+
+    }
+    function w3_close() {
+        mySidebar.style.display = "none";
+    }
+
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Selectăm butonul "Edit profile" folosind clasa CSS corespunzătoare
+        var editProfileButton = document.getElementById('editProfileButton');
+
+        // Verificăm dacă butonul a fost găsit în DOM
+        if (editProfileButton) {
+            // Adăugăm un eveniment de click care să deschidă fereastra modală pentru editarea profilului
+            editProfileButton.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevenim acțiunea implicită a butonului (de exemplu, trimiterea formularului)
+                openEditProfileModal(); // Apelăm funcția pentru deschiderea ferestrei modale
+            });
+        }
+
+        // Funcție pentru deschiderea ferestrei modale pentru editarea profilului
+        function openEditProfileModal() {
+            var editProfileModal = document.getElementById('editProfileModal');
+            if (editProfileModal) {
+                editProfileModal.style.display = 'block'; // Afișăm fereastra modală
+            }
+        }
+
+        // Funcție pentru închiderea ferestrei modale pentru editarea profilului
+        function closeEditProfileModal() {
+            var editProfileModal = document.getElementById('editProfileModal');
+            if (editProfileModal) {
+                editProfileModal.style.display = 'none'; // Ascundem fereastra modală
+            }
+        }
+
+        // Adăugăm un eveniment de click pe butonul "X" din fereastra modală pentru a o închide
+        var closeButton = document.querySelector('#editProfileModal .w3-button.w3-display-topright');
+        if (closeButton) {
+            closeButton.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevenim acțiunea implicită a butonului (de exemplu, trimiterea formularului)
+                closeEditProfileModal(); // Apelăm funcția pentru închiderea ferestrei modale
+            });
+        }
+    });
+
+
+
+    function openCouponsModal() {
+        var couponsModal = document.getElementById('couponsModal');
+        if (couponsModal) {
+            couponsModal.style.display = 'block'; // Afișăm fereastra modală pentru cupoane
+        }
+    }
+
+    // Funcție pentru închiderea ferestrei modale pentru cupoane
+    function closeCouponsModal() {
+        var couponsModal = document.getElementById('couponsModal');
+        if (couponsModal) {
+            couponsModal.style.display = 'none'; // Ascundem fereastra modală pentru cupoane
+        }
+    }
+
+    // Găsim butonul "Get more coupons"
+    var getMoreCouponsButton = document.querySelector('.buttonCoupons');
+
+    // Verificăm dacă butonul a fost găsit în DOM
+    if (getMoreCouponsButton) {
+        // Adăugăm un eveniment de click care să deschidă fereastra modală pentru cupoane
+        getMoreCouponsButton.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevenim acțiunea implicită a butonului (de exemplu, trimiterea formularului)
+            openCouponsModal(); // Apelăm funcția pentru deschiderea ferestrei modale pentru cupoane
+        });
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Benefits</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+
+        body, html {
+            height: 100%;
+            line-height: 1.8;
+        }
+
+        /* Full height image header */
+        .bgimg-1 {
+            background-position: center;
+            background-size: cover;
+            background-image: url("./imagini/bannerinvers.png");
+            height: 300px;
+        }
+
+        .w3-bar .w3-button {
+            padding: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+    <div class="w3-bar w3-card" style="background-color: #f0e7e7" id="myNavbar">
+        <a href="./index.html" class="w3-bar-item w3-button w3-wide"><img src="./imagini/logocrem.png" style="height: 30px"></a>
+        <!-- Right-sided navbar links -->
+        <div class="w3-right w3-hide-small" style="color: #A10135">
+            <a href="./events.html" class="w3-bar-item w3-button">EVENTS</a>
+            <a href="./contact.html" class="w3-bar-item w3-button"> ABOUT US</a>
+            <a href="./signin.html" class="w3-bar-item w3-button"><i class="fa fa-user"></i> ACCOUNT</a>
+        </div>
+        <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+</div>
+
+<!-- Sidebar on small screens when clicking the menu icon -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close &times;</a>
+    <a href="./events.html" onclick="w3_close()" class="w3-bar-item w3-button">EVENTS</a>
+    <a href="./contact.html" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT US</a>
+    <a href="./signin.html" onclick="w3_close()" class="w3-bar-item w3-button">ACCOUNT</a>
+</nav>
+
+<!-- Header with full-height image -->
+<header class="bgimg-1 w3-display-container" id="home"></header>
+
+<!-- About Section -->
+<div class="w3-container" style="padding:128px 16px; background-color: #f0e7e7" id="about">
+    <h3 class="w3-center" style="margin-bottom: 70px">BENEFITS</h3>
+    <div class="w3-row-padding">
+        <div class="w3-third w3-container w3-margin-bottom">
+            <img src="./imagini/notificationPreview.png" alt="Norway" style="width:100%">
+            <div class="w3-container w3-white">
+                <h4><b>You get a free day from work/university!</b></h4>
+                <p style="text-align: justify">For every donation you make, we'll handle the hassle of notifying your employer or professors about your noble act via email. So, while you're busy making a positive difference, we'll take care of ensuring you get the recognition and appreciation you deserve. It's our little way of saying thank you for being a valued part of our community and for your ongoing commitment to giving back. So go ahead, schedule your donation today, and get ready to enjoy that extra day of relaxation or adventure!</p>
+            </div>
+        </div>
+        <div class="w3-third w3-container w3-margin-bottom">
+            <img src="./imagini/cupoanePreview.png" alt="Cupoane" style="width:100%">
+            <div class="w3-container w3-white">
+                <h4><b>You are rewarded with discount coupons!</b></h4>
+                <p style="text-align: justify">Each time you make a donation through our app, you'll automatically accumulate points in your account. These points act as a token of appreciation for your generosity and commitment to making a difference in the community.
+
+                    As you continue to donate and accrue points, you'll eventually reach a threshold where you can start redeeming these points for exclusive discount coupons. These coupons can be used to enjoy discounts on a wide range of products and services offered by our partner businesses.</p>
+            </div>
+        </div>
+        <div class="w3-third w3-container">
+            <img src="./imagini/medicalInfoPreview.png" alt="Norway" style="width:100%">
+            <div class="w3-container w3-white">
+                <h4><b>You get free tests for each donation!</b></h4>
+                <p style="text-align: justify">Every time you donate through our app, you'll receive complimentary health analyses related to your donation. These analyses cover various aspects such as blood pressure, cholesterol levels, glucose levels, and more, depending on the type of donation.
+
+                    These analyses are not only beneficial for your health monitoring but also provide you with valuable insights into your well-being. You can access and review these analyses anytime in your app profile, allowing you to track your health progress over time.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-padding-32" style="background-color: #A10135; color: #f0e7e7">
+    <a href="#home" class="w3-button" style="background-color: #f0e7e7; color: #A10135"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+    <div class="w3-large w3-section" style="font-size: 12px">
+        <span style="margin:10px"><i class="fa fa-map-marker fa-fw w3-hover-opacity"></i> Cluj-Napoca, Romania</span>
+        <span style="margin:10px"><i class="fa fa-phone fa-fw w3-hover-opacity"></i> Phone: 0712345689</span>
+        <span style="margin:10px"><i class="fa fa-envelope fa-fw w3-hover-opacity"> </i> Email: bpositiveeeee@gmail.com</span>
+    </div>
+</footer>
+
+<script>
+    function onClick(element) {
+        document.getElementById("img01").src = element.src;
+        document.getElementById("modal01").style.display = "block";
+        var captionText = document.getElementById("caption");
+        captionText.innerHTML = element.alt;
+    }
+
+    var mySidebar = document.getElementById("mySidebar");
+
+    function w3_open() {
+        if (mySidebar.style.display === 'block') {
+            mySidebar.style.display = 'none';
+        } else {
+            mySidebar.style.display = 'block';
+        }
+    }
+    function w3_close() {
+        mySidebar.style.display = "none";
+    }
+</script>
+
+</body>
+</html>

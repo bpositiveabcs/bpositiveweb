@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign in</title>
+    <title>Sign up</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
 
@@ -209,6 +209,19 @@
             color: #fff;
         }
 
+        .homepage {
+            position: absolute;
+            top:15px;
+            left:15px;
+            text-align: center;
+            color:darkred;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .homepage:hover {
+            transform: scale(1.2);
+        }
+
         .social-icons {
             display: flex;
             align-items: center;
@@ -219,7 +232,7 @@
             padding: 20px 10px;
             color: #fff;
             text-decoration: none;
-            text-shadow: 0px 0px 8px #7875B5;
+            text-shadow: 0px 0px 8px darkred;
         }
 
         .social-login__icon:hover {
@@ -246,55 +259,6 @@
             background-size: cover;
             background-position: center;
             display: flex;
-        }
-
-        .form-box {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            z-index: 2;
-        }
-
-        .login-container {
-            position: absolute;
-            width: 75%;
-            height: 75%;
-            align-content: center;
-            justify-content: center;
-            display: flex;
-            flex-direction: column;
-            transition: .5s ease-in-out;
-            background: rgba(255, 255, 255, 0.7);
-            border-radius: 10px;
-            padding: 20px;
-        }
-
-
-        .submit-container {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-        }
-
-        .submit {
-            width: 30%;
-            padding: 10px 0;
-            background: darksalmon;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: .3s;
-        }
-
-        .submit:hover {
-            background: saddlebrown;
-        }
-
-        .align-right {
-            text-align: right;
         }
 
         .login-container header {
@@ -425,6 +389,9 @@
                 <div class="social-icons">
                     <a href="./signin.html" class="social-login__icon">Sign In</a>
                 </div>
+            </div>
+            <div class="homepage">
+                <h5><a href="./index.html" style="text-decoration: none; color: darkred">Home Page</a></h5>
             </div>
         </div>
         <div class="screen__background">
