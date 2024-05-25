@@ -1,0 +1,30 @@
+.bgimg-1 {
+    background-position: center;
+    background-size: cover;
+    background-image: url('/images/banners/bannerinvers.png'); /* Ensure the path is correct */
+    height: 300px;
+}
+
+.w3-container h3 {
+    color: #A10135;
+}
+
+.w3-container p {
+    color: #333;  /* Ensure text is visible */
+}
+
+/*.w3-container span {*/
+/*    color: #A10135;*/
+/*}*/
+main {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    text-align: center;
+}

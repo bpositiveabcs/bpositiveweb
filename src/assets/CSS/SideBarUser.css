@@ -1,0 +1,20 @@
+/* src/assets/CSS/SideBarUser.css */
+.sidebar-toggle-btn {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background-color: #A10135;
+    color: #f0e7e7;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.sidebar {
+    width: 250px;
+    transition: transform 0.3s ease;
+}
+
+.sidebar-hidden {
+    transform: translateX(-100%);
+}

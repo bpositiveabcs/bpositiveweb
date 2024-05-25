@@ -1,0 +1,22 @@
+.bgimg {
+    background-position: center;
+    background-size: cover;
+    background-image: url("/images/banners/bannerinvers.png");
+}
+.bgimg-about {
+    height: 20vh;  /* Adjust as needed */
+    /*min-height: 300px;*/
+    padding-top: 2700px
+}
+
+.bgimg-otherComponent {
+    height: 20vh;  /* Adjust as needed */
+    min-height: 500px;
+}
+
+/* Add more as needed for other components */
+
+
+.w3-bar .w3-button {
+    padding: 16px;
+}

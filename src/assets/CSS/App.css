@@ -1,0 +1,28 @@
+
+nav {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav ul li {
+  margin-left: 30px; /* Spațiu între elementele din meniu */
+}
+
+nav ul li a {
+  color: darkred;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+nav ul li a:hover {
+  color: black;
+}
