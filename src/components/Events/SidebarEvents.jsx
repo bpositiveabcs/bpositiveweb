@@ -28,7 +28,7 @@ const SidebarEvents = () => {
     };
 
     const showAddress = (address) => {
-        return `${address.city} ${address.street} ${address.number}`;
+        return `${address.city} ${address.street} ${address.numberStreet}`;
     };
 
     if (!user) {
@@ -166,7 +166,7 @@ const SidebarEvents = () => {
                 </div>
             )}
 
-            {isEditProfileModalOpen && <EditProfileModal onClose={toggleEditProfileModal} />}
+            {isEditProfileModalOpen && <EditProfileModal onClose={toggleEditProfileModal} user={user} />}
             {isCouponsModalOpen && <CouponsModal onClose={toggleCouponsModal} />}
         </div>
     );

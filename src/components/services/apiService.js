@@ -72,13 +72,15 @@ export const signIn = async (credentials) => {
 
 export const signUp = async (userInfo) => {
     try {
-        const response = await axios.post(`${API_URL}/auth/signup`, userInfo);
+        const response = await axios.post(`${API_URL}/personActorService/sign-up`, userInfo, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
         return response.data;
     } catch (error) {
         console.error('Error signing up:', error);
-
-        // throw error;
-        alert("Error signing up: " + error);
+        alert("Error signing up: " + (error.response?.data?.message || error.message));
     }
 };
 
