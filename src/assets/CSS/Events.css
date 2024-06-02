@@ -1,69 +1,103 @@
 /* src/assets/CSS/Events.css */
 
+/* Reset default margin and padding for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+/* Set up basic styles for the layout */
 .App {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Ensure the app takes up the full height */
+    flex: 1;
+    min-height: 100vh;
 }
 
 .container {
-    flex: 1;
     display: flex;
-    flex-direction: column;
-    padding-top: 60px; /* Adjust based on the height of your navbar */
-    padding-bottom: 60px; /* Adjust based on the height of your footer */
+    flex: 1;
+    flex-direction: row; /* Aliniază secțiunile orizontal */
+    justify-content: flex-start; /* Aliniază secțiunile în stânga */
+    padding-top: 80px; /* Adjust based on the height of your navbar */
+    padding-bottom: 80px; /* Adjust based on the height of your footer */
     box-sizing: border-box; /* Include padding in the element's total width and height */
 }
 
-.navbar, .footer {
+/* Ensure navbar stays on top and occupies the full width */
+.navbar {
     width: 100%;
     position: fixed;
-    left: 0;
-    z-index: 1000; /* Ensure navbar and footer stay on top */
-}
-
-.navbar {
     top: 0;
+    left: 0;
+    z-index: 1000; /* Ensure navbar stays on top */
+    color: #fff; /* White text color */
+    text-align: center; /* Center align text */
 }
 
-.footer {
-    bottom: 0;
-}
-
-.sidebar-toggle-btn {
-    position: fixed;
-    top: 60px; /* Adjust based on the height of your navbar */
-    left: 10px;
-    background-color: #A10135;
-    color: #f0e7e7;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    z-index: 1000;
-}
-
-.sidebar {
-    width: 250px;
-    transition: transform 0.3s ease;
-}
-
-.sidebar-hidden {
-    transform: translateX(-100%);
-}
-
+/* Set up the main content layout */
 .w3-row {
     display: flex;
-    flex: 1; /* Ensure the row takes up the remaining space */
+    flex: 1;
+    /*flex-wrap: wrap; !* Ensure content wraps to next line if it overflows *!*/
+    justify-content: center; /* Center align content horizontally */
+    width: 100%; /* Occupy full width of the container */
 }
 
 .w3-col {
-    flex: 1;
+    flex-grow: 1; /* Permite fiecărei coloane să crească și să ocupe tot spațiul disponibil */
+    margin: 10px; /* Asigurați-vă că nu există margini suplimentare care să reducă spațiul disponibil */
 }
 
-.content {
-    flex: 3;
-    padding: 20px;
-    background-color: #f0e7e7;
-    overflow-y: auto; /* Ensure content is scrollable if it overflows */
+/* Adjust padding for event containers */
+.w3-container {
+    padding: 20px; /* Add padding to event containers */
+    background-color: rgba(161, 1, 53, 0.8); /* Background color */
+    margin-bottom: 30px; /* Add margin bottom for spacing between event containers */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow for depth effect */
+    width: 100%; /* Occupy full width of the container */
+}
+
+/* Style for event title */
+.event-title {
+    font-size: 18px; /* Adjust font size */
+    font-weight: bold; /* Add bold font weight */
+    margin-bottom: 10px; /* Add margin bottom */
+}
+
+/* Style for event description */
+.event-description {
+    font-size: 14px; /* Adjust font size */
+    line-height: 1.5; /* Adjust line height */
+    color: #666; /* Darker gray text color */
+}
+
+/* Style for profile section */
+.profile-section {
+    background-color: #A10135; /* Background color same as event containers */
+    padding: 20px; /* Add padding */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow for depth effect */
+    max-width: 100%; /* Limit the maximum width of the profile section */
+    width: calc(50% - 20px); /* Set the width of the profile section */
+}
+
+
+/* Style for profile photo */
+.profile-photo {
+    width: 100px; /* Adjust width */
+    height: 100px; /* Adjust height */
+    border-radius: 50%; /* Make it circular */
+    margin-bottom: 10px; /* Add margin bottom */
+}
+
+/* Style for footer */
+.footer {
+    width: 100%;
+    background-color: #333; /* Dark background color */
+    color: #fff; /* White text color */
+    padding: 15px 0; /* Adjust padding for footer */
+    text-align: center; /* Center align text */
 }
