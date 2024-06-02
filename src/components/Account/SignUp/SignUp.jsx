@@ -4,6 +4,7 @@ import Section1 from '../SignUp/Sections/Section1.jsx';
 import Section2 from '../SignUp/Sections/Section2.jsx';
 import Section3 from '../SignUp/Sections/Section3.jsx';
 import Section4 from '../SignUp/Sections/Section4.jsx';
+import Section5 from '../SignUp/Sections/Section5.jsx';
 import { signUp } from '../../services/apiService.js'; // Make sure the path is correct
 import '../../../assets/CSS/SignUp.css';
 
@@ -27,7 +28,10 @@ const SignUp = () => {
         email: '',
         username: '',
         password: '',
-        confirmPassword: ''
+        confirmPassword: '',
+        bloodType: '',
+        bloodRh: '',  // Make sure this matches the field name expected on the server
+        eligibility: ''
     });
 
     const handleChange = (e) => {
@@ -72,7 +76,8 @@ const SignUp = () => {
                         {currentSection === 1 && <Section1 nextSection={nextSection} handleChange={handleChange} formData={formData} />}
                         {currentSection === 2 && <Section2 nextSection={nextSection} prevSection={prevSection} handleChange={handleChange} formData={formData} />}
                         {currentSection === 3 && <Section3 nextSection={nextSection} prevSection={prevSection} handleChange={handleChange} formData={formData} />}
-                        {currentSection === 4 && <Section4 prevSection={prevSection} handleChange={handleChange} formData={formData} />}
+                        {currentSection === 4 && <Section4 nextSection={nextSection} prevSection={prevSection} handleChange={handleChange} formData={formData} />}
+                        {currentSection === 5 && <Section5 prevSection={prevSection} handleChange={handleChange} formData={formData} />}
                     </form>
                     <div className="social-login">
                         <h5>You already have an account?</h5>

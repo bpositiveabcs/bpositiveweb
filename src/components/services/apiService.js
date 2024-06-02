@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API_URL = 'http://localhost:55555'; // Replace with your actual API URL
-const WS_URL = 'ws://localhost:55555/client-websocket'; // Replace with your actual WebSocket URL
+const WS_URL = 'htttp://localhost:55555/client-websocket'; // Replace with your actual WebSocket URL
 
 // Event APIs
 export const getEvents = async () => {
@@ -14,15 +14,106 @@ export const getEvents = async () => {
     }
 };
 
-export const joinEvent = async (eventId) => {
+//update Profile
+//
+export const updateProfile = async (formData) => {
+    const formDataToSend = new FormData();
+    Object.keys(formData).forEach(key => {
+        formDataToSend.append(key, formData[key]);
+    });
+
     try {
-        const response = await axios.post(`${API_URL}/events/join`, { eventId });
+        const response = await fetch(`${API_URL}/personActorService/persons`, {
+            method: 'POST',
+            body: formDataToSend
+        });
+
+        return response;
+    } catch (error) {
+        console.error('Error:', error);
+        return { ok: false };
+    }
+};
+export const uploadStudentDetails = async (formData) => {
+    return await fetch('/api/upload', {
+        method: 'POST',
+        body: formData
+    });
+};
+
+export const verifyCode = async (payload) => {
+    return await fetch('/api/verifyCode', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+    });
+};
+
+export const getUserByUsername = async (username) => {
+    try {
+        const response = await axios.get(`${API_URL}/persons/username?usernamePerson=${username}`);
         return response.data;
     } catch (error) {
-        console.error('Error joining event:', error);
+        console.error('Error fetching user data:', error);
         throw error;
     }
 };
+
+
+
+
+// Function to send selected coupons and user to the backend
+export const submitSelectedCoupons = async (username, selectedCoupons) => {
+    const response = await axios.post(`${API_URL}/retrieved-coupons/list-coupons`, {
+        username: username,
+        couponList: selectedCoupons
+    });
+    return response.data;
+};
+
+export const uploadIdentityCard = async (identityCard) => {
+    const formDataToSend = new FormData();
+    formDataToSend.append('identityCard', identityCard);
+
+    try {
+        const response = await fetch(`${API_URL}/events/join-event`, {
+            method: 'POST',
+            body: formDataToSend
+        });
+
+        return response;
+    } catch (error) {
+        console.error('Error:', error);
+        return { ok: false };
+    }
+};
+
+
+
+export const joinEvent = async (event, username) => {
+    try {
+        const response = await fetch(`${API_URL}/events/join-event?username=${username}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(event),
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to join event');
+        }
+
+        const updatedUser = await response.json(); // Assuming the API returns updated user data
+        return updatedUser;
+    } catch (error) {
+        console.error('Error joining event:', error);
+        return null;
+    }
+};
+
 
 // User APIs
 export const getUser = async () => {
@@ -69,6 +160,17 @@ export const signIn = async (credentials) => {
     }
 };
 
+export const getCouponsAvailable = async () => {
+    try {
+        const response = await axios.get(`${API_URL}/coupons`);
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching coupons:', error);
+        throw error;
+    }
+
+}
+
 
 export const signUp = async (userInfo) => {
     try {
@@ -92,8 +194,8 @@ export const logout = async () => {
         console.error('Error logging out:', error);
         throw error;
     }
-};
 
+};
 // WebSocket connection
 export const connectWebSocket = (onMessage) => {
     const socket = new WebSocket(WS_URL);

@@ -8,14 +8,19 @@ class WebSocketService {
     }
 
     connect(url, onConnect, onError) {
+        if (this.client && this.client.connected) {
+            console.log("Already connected");
+            return;
+        }
+
         this.client = new Client({
-            webSocketFactory: () => new SockJS(url),
+            webSocketFactory: () => new SockJS(url, null, {transports: ['websocket'] }),
             debug: (str) => {
                 console.log(str);
             },
             reconnectDelay: 5000,
-            heartbeatIncoming: 4000,
-            heartbeatOutgoing: 4000,
+            heartbeatIncoming: 10000,
+            heartbeatOutgoing: 10000,
         });
 
         this.client.onConnect = (frame) => {
@@ -46,23 +51,27 @@ class WebSocketService {
     }
 
     subscribe(topic, callback) {
+        if (this.subscriptions.has(topic)) {
+            console.log(`Already subscribed to topic: ${topic}`);
+            return;
+        }
+
         if (this.client && this.client.connected) {
-            this.client.subscribe(topic, (message) => {
+            const subscription = this.client.subscribe(topic, (message) => {
                 callback(message.body);
             });
+            this.subscriptions.set(topic, subscription);
         } else {
             this.subscriptions.set(topic, callback);
         }
     }
 
     unsubscribe(topic) {
-        if (this.client && this.client.connected) {
-            const subscription = this.client.activeSubscriptions.get(topic);
-            if (subscription) {
-                subscription.unsubscribe();
-            }
+        const subscription = this.subscriptions.get(topic);
+        if (subscription) {
+            subscription.unsubscribe();
+            this.subscriptions.delete(topic);
         }
-        this.subscriptions.delete(topic);
     }
 }
 

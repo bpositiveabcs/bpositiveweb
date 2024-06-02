@@ -1,4 +1,3 @@
-// src/components/Common/EditProfileModal.jsx
 import React, { useState } from 'react';
 
 const EditProfileModal = ({ onClose, user }) => {
@@ -36,7 +35,7 @@ const EditProfileModal = ({ onClose, user }) => {
             alert('Passwords do not match');
             return;
         }
-        // Handle form submission
+
     };
 
     return (

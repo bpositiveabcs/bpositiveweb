@@ -1,4 +1,3 @@
-// src/components/Events.jsx
 import React, { useState, useEffect, useContext } from 'react';
 import { getEvents } from '../services/apiService';
 import EventDescription from './EventDescription';
@@ -14,6 +13,7 @@ const Events = () => {
 
     useEffect(() => {
         const handleIncomingMessage = (message) => {
+            console.log(user);
             console.log('WebSocket message received:', message);
             if (message.startsWith('UPDATE_EVENTS')) {
                 loadEvents().then(() => console.log('Events updated'));
@@ -28,7 +28,7 @@ const Events = () => {
 
         const connectWebSocket = () => {
             webSocketService.connect(
-                'http://localhost:55555/client-websocket', // Replace with your WebSocket URL
+                'http://localhost:55555/client-websocket', // Ensure this is an HTTP/HTTPS URL
                 () => {
                     webSocketService.subscribe('/topic/clients', handleIncomingMessage);
                 },
@@ -69,7 +69,7 @@ const Events = () => {
                     <div className="w3-col m9 content">
                         <h2>Event List</h2>
                         {events.map((event) => (
-                            <EventDescription key={event.id} event={event} />
+                            <EventDescription key={event.id} event={event} user={user} isAuthenticated={isAuthenticated} />
                         ))}
                     </div>
                 </div>
