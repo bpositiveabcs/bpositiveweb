@@ -13,6 +13,7 @@ const Navbar = ({ onSidebarToggle }) => {
                 </Link>
                 <div className="w3-right w3-hide-small" style={{ color: '#A10135' }}>
                     <Link to="/events" className="w3-bar-item w3-button">EVENTS</Link>
+                    <Link to="/benefits" className="w3-bar-item w3-button">BENEFITS</Link>
                     <Link to="/about-us" className="w3-bar-item w3-button">ABOUT US</Link>
                     {isAuthenticated ? (
                         <button onClick={logout} className="w3-bar-item w3-button">LOGOUT</button>

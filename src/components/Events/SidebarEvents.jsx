@@ -79,6 +79,7 @@ const SidebarEvents = () => {
                                 });
                                 const result = await response.json();
                                 const messageDiv = document.getElementById('message');
+                                
                                 if (result.success) {
                                     messageDiv.innerText = 'Verification successful!';
                                     setTimeout(() => {

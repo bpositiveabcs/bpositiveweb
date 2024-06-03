@@ -17,11 +17,13 @@ function BenefitsMain() {
 
     return (
         <div className="BenefitsMain">
-            <Navbar onSidebarToggle={handleSidebarToggle} />
-            <Sidebar isOpen={sidebarOpen} onClose={handleSidebarToggle} />
-            <Header />
-            <Benefits />
-            <Footer />
+            <div className="fundal">
+                <Navbar onSidebarToggle={handleSidebarToggle} />
+                <Sidebar isOpen={sidebarOpen} onClose={handleSidebarToggle} />
+                <Header />
+                <Benefits />
+                <Footer />
+            </div>
         </div>
     );
 }
