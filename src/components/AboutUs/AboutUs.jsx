@@ -7,6 +7,7 @@ import 'w3-css/w3.css';
 import MoreInformation from "./subComponents/MoreInformation.jsx";
 import '../../assets/CSS/Benefits.css';
 import Header from "../Common/Header.jsx";
+import Layout from "../LayoutComponent/Layout.jsx";
 
 const AboutUs = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -27,6 +28,7 @@ const AboutUs = () => {
                 <About/>
                 <MoreInformation/>
                 <Footer/>
+            <Layout/>
         </div>
 );
 };

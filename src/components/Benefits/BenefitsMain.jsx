@@ -7,6 +7,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'w3-css/w3.css';
 import '../../assets/CSS/App.css';
 import Header from '../Common/Header';
+import Layout from "../LayoutComponent/Layout.jsx";
 
 function BenefitsMain() {
     const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -22,7 +23,9 @@ function BenefitsMain() {
                 <Sidebar isOpen={sidebarOpen} onClose={handleSidebarToggle} />
                 <Header />
                 <Benefits />
+                <Layout />
                 <Footer />
+
             </div>
         </div>
     );

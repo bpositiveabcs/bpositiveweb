@@ -8,7 +8,7 @@ import StartPage from "./components/MainPage/StartPage.jsx";
 import SignUp from "./components/Account/SignUp/SignUp.jsx";
 import SignIn from "./components/Account/LogIn/SignIn.jsx";
 import { AuthProvider } from "./contexts/AuthContexts.jsx";
-
+import Layout from "./components/LayoutComponent/Layout.jsx";
 function App() {
     return (
         <Router>

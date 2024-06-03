@@ -7,7 +7,8 @@ import SidebarEvents from './SidebarEvents';
 import Footer from '../Common/Footer';
 import { AuthContext } from '../../contexts/AuthContexts';
 import '../../assets/CSS/Events.css'; // Import the CSS file
-
+import Chatbot from "../ChatBot/Chatbot.jsx";
+import Layout from "../LayoutComponent/Layout.jsx";
 const Events = () => {
     const [events, setEvents] = useState([]); // Initialize as an empty array
     const { user, isAuthenticated } = useContext(AuthContext);
@@ -59,8 +60,10 @@ const Events = () => {
     }, []);
 
     return (
+
         <div className="App">
             <Navbar />
+            <Layout/>
             <div className="container">
                 <header className="bgimg-1 w3-display-container" id="home"></header>
                 <div className="w3-row">
@@ -80,7 +83,9 @@ const Events = () => {
                 </div>
             </div>
             <Footer />
+
         </div>
+
     );
 };
 

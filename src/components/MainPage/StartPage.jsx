@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import Layout from "../LayoutComponent/Layout.jsx";
 import { AuthContext } from '../../contexts/AuthContexts.jsx'; // Adjust the import path as needed
-
 const BodyPage = styled.div`
     margin: 0;
     padding: 0;

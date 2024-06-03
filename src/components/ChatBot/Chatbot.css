@@ -1,0 +1,62 @@
+/* components/ChatBot/Chatbot.css */
+.chatbot-toggle-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ff0088;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.chatbot-container {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 300px;
+    max-height: 400px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 1000;
+}
+
+.chat-window {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+.user p {
+    background-color: #DCF8C6; /* Verde pal */
+    align-self: flex-end;
+    margin-left: auto;
+    border: 1px solid #ccc;
+    color: #000;
+}
+
+/* Stil pentru mesajele trimise de chatbot */
+.bot p {
+    background-color: #F1F0F0; /* Gri deschis */
+    align-self: flex-start;
+    margin-right: auto;
+    border: 1px solid #ccc;
+    color: #000;
+}
+
+.chat-message {
+    margin-bottom: 10px;
+}
+
+.chat-message.user {
+    text-align: right;
+}
+
+.chat-message.bot {
+    text-align: left;
+}
