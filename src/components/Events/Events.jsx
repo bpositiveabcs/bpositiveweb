@@ -8,18 +8,34 @@ import Footer from '../Common/Footer';
 import { AuthContext } from '../../contexts/AuthContexts';
 import '../../assets/CSS/Events.css'; // Import the CSS file
 import Layout from "../LayoutComponent/Layout.jsx";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Events = () => {
     const [events, setEvents] = useState([]); // Initialize as an empty array
-    const { user, isAuthenticated } = useContext(AuthContext);
+    const { user, isAuthenticated, setUser } = useContext(AuthContext);
 
     useEffect(() => {
         const handleIncomingMessage = (message) => {
             console.log('WebSocket message received:', message);
-            if (message.startsWith('UPDATE_EVENTS')) {
-                loadEvents().then(() => console.log('Events updated'));
+            if (message.startsWith('UPDATE_EVENTS') || message.startsWith('NEW_EVENT')) {
+                loadEvents().then(() => {
+                    toast.info('Events updated');
+                });
             } else if (message.startsWith('NOTIFICATION')) {
-                alert(`Notification: ${message}`);
+                toast.info(`Notification: ${message}`);
+            } else if (message.startsWith('USER_UPDATE')) {
+                // Fetch user data and update context
+                fetchUserData().then(updatedUser => {
+                    setUser(updatedUser);
+                    toast.info('User information updated');
+                });
+            } else if (message.startsWith('UPDATE_DONATION_USER')) {
+                // Fetch user data and update context
+                fetchUserData().then(updatedUser => {
+                    setUser(updatedUser);
+                    toast.info('Donation information updated');
+                });
             }
         };
 
@@ -43,7 +59,7 @@ const Events = () => {
             webSocketService.unsubscribe('/topic/clients');
             webSocketService.disconnect();
         };
-    }, []);
+    }, [setUser]);
 
     const loadEvents = async () => {
         try {
@@ -52,6 +68,16 @@ const Events = () => {
             setEvents(Array.isArray(eventsData) ? eventsData : []); // Ensure eventsData is an array
         } catch (error) {
             console.error('Error fetching events:', error);
+        }
+    };
+
+    const fetchUserData = async () => {
+        try {
+            // Implement your API call to fetch user data here
+            const updatedUser = await getUserData(user.personLogInfo.username);
+            return updatedUser;
+        } catch (error) {
+            console.error('Error fetching user data:', error);
         }
     };
 
@@ -82,6 +108,17 @@ const Events = () => {
                 </div>
             </div>
             <Footer />
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
         </div>
     );
 };

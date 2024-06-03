@@ -1,5 +1,6 @@
 import SockJS from 'sockjs-client';
 import { Client } from '@stomp/stompjs';
+import { toast } from 'react-toastify';
 
 class WebSocketService {
     constructor() {
@@ -14,7 +15,7 @@ class WebSocketService {
         }
 
         this.client = new Client({
-            webSocketFactory: () => new SockJS(url, null, {transports: ['websocket'] }),
+            webSocketFactory: () => new SockJS(url, null, { transports: ['websocket'] }),
             debug: (str) => {
                 console.log(str);
             },
@@ -26,7 +27,7 @@ class WebSocketService {
         this.client.onConnect = (frame) => {
             console.log('Connected: ' + frame);
             if (onConnect) {
-                onConnect();
+                onConnect(frame);
             }
             this.subscriptions.forEach((callback, topic) => {
                 this.subscribe(topic, callback);
@@ -59,6 +60,7 @@ class WebSocketService {
         if (this.client && this.client.connected) {
             const subscription = this.client.subscribe(topic, (message) => {
                 callback(message.body);
+                toast.info(message.body); // Trigger notification
             });
             this.subscriptions.set(topic, subscription);
         } else {
