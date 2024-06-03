@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { getEventsDTO } from '../services/apiService'; // Update this to point to the correct API service
+import { getEventsDTO } from '../services/apiService';
 import EventDescription from './EventDescription';
 import webSocketService from '../../hooks/useWebSockets';
 import Navbar from '../Common/Navbar';
@@ -7,8 +7,8 @@ import SidebarEvents from './SidebarEvents';
 import Footer from '../Common/Footer';
 import { AuthContext } from '../../contexts/AuthContexts';
 import '../../assets/CSS/Events.css'; // Import the CSS file
-import Chatbot from "../ChatBot/Chatbot.jsx";
 import Layout from "../LayoutComponent/Layout.jsx";
+
 const Events = () => {
     const [events, setEvents] = useState([]); // Initialize as an empty array
     const { user, isAuthenticated } = useContext(AuthContext);
@@ -60,15 +60,14 @@ const Events = () => {
     }, []);
 
     return (
-
         <div className="App">
             <Navbar />
-            <Layout/>
+            <Layout />
             <div className="container">
                 <header className="bgimg-1 w3-display-container" id="home"></header>
                 <div className="w3-row">
                     <div className="w3-col m3">
-                        {isAuthenticated && user && <SidebarEvents user={user} />}
+                        {isAuthenticated && user && <SidebarEvents />}
                     </div>
                     <div className="w3-col m9 content">
                         <h2>Event List</h2>
@@ -83,9 +82,7 @@ const Events = () => {
                 </div>
             </div>
             <Footer />
-
         </div>
-
     );
 };
 

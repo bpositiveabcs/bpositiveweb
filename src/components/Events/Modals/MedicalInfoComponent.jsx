@@ -10,6 +10,7 @@ const MedicalInfoComponent = ({ username }) => {
         const fetchMedicalInfo = async () => {
             try {
                 const data = await getMedicalInfo(username);
+                console.log('Fetched medical info:', data);
                 setMedicalInfo(data);
             } catch (error) {
                 setError('Failed to fetch medical information');
