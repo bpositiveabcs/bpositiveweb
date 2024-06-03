@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const EditProfileModal = ({ onClose, user }) => {
     const [formData, setFormData] = useState({
@@ -29,13 +30,31 @@ const EditProfileModal = ({ onClose, user }) => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (formData.password !== formData.confirmPassword) {
             alert('Passwords do not match');
             return;
         }
 
+        const updatedData = { ...formData };
+        if (!formData.password) {
+            delete updatedData.password;
+            delete updatedData.confirmPassword;
+        }
+
+        try {
+            const response = await axios.put('/persons', updatedData);
+            if (response.status === 200) {
+                alert('Profile updated successfully');
+                onClose();
+            } else {
+                alert('Error updating profile');
+            }
+        } catch (error) {
+            console.error('Error updating profile:', error);
+            alert('Error updating profile');
+        }
     };
 
     return (
@@ -91,10 +110,10 @@ const EditProfileModal = ({ onClose, user }) => {
                             <input type="email" className="edit__input" placeholder="Email" name="email" value={formData.email} onChange={handleChange} required />
                         </div>
                         <div className="edit__field">
-                            <input type="password" className="edit__input" placeholder="Change password" name="password" value={formData.password} onChange={handleChange} required />
+                            <input type="password" className="edit__input" placeholder="Change password" name="password" value={formData.password} onChange={handleChange} />
                         </div>
                         <div className="edit__field">
-                            <input type="password" className="edit__input" placeholder="Confirm new password" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} required />
+                            <input type="password" className="edit__input" placeholder="Confirm new password" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} />
                         </div>
                         <button type="submit" className="submitButton" style={{ width: '50%' }}>Save Changes</button>
                     </form>

@@ -46,6 +46,7 @@ const EventDescription = ({ event, user, isAuthenticated }) => {
             <p>Begins: {new Date(event.eventStartDate).toLocaleString()}</p>
             <p>Ends: {new Date(event.eventEndDate).toLocaleString()}</p>
             <p>Maximum number of participants: {event.maxParticipants}</p>
+            <p>Current number of participants: {event.currentNumberOfParticipants}</p>
             <p>Requirements: {event.eventRequirements}</p>
             {isAuthenticated ? (
                 <button

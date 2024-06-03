@@ -1,16 +1,32 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContexts';
 import EditProfileModal from '../Events/Modals/EditProfileModal';
 import CouponsModal from '../Events/Modals/CouponsModal';
 import MedicalInfoComponent from '../Events/Modals/MedicalInfoComponent';
-import { uploadStudentDetails } from '../services/apiService';
+import { uploadStudentDetails, checkIfStudent } from '../services/apiService';
 
 const SidebarEvents = () => {
     const [isSidebarOpen, setSidebarOpen] = useState(true);
     const [isEditProfileModalOpen, setEditProfileModalOpen] = useState(false);
     const [isCouponsModalOpen, setCouponsModalOpen] = useState(false);
     const [activeSection, setActiveSection] = useState(null);
+    const [isStudent, setIsStudent] = useState(false);
     const { user } = useContext(AuthContext);
+
+    useEffect(() => {
+        const checkStudentStatus = async () => {
+            try {
+                const student = await checkIfStudent(user.personLogInfo.username);
+                if (student) {
+                    setIsStudent(true);
+                }
+            } catch (error) {
+                console.error('Failed to check student status:', error);
+            }
+        };
+
+        checkStudentStatus();
+    }, [user]);
 
     const toggleSidebar = () => {
         setSidebarOpen(!isSidebarOpen);
@@ -87,7 +103,7 @@ const SidebarEvents = () => {
                     </div>
                     <br />
 
-                    {!user.studentDetails && (
+                    {!isStudent && (
                         <div className="w3-card w3-round w3-hide-small">
                             <div className="w3-container" style={{ backgroundColor: 'rgba(161,1,53,0.8)', color: '#f0e7e7' }}>
                                 <p onClick={() => toggleSection('StudentForm')}><i className="fa fa-university fa-fw w3-margin-right"></i>Are you a student?</p>
@@ -127,18 +143,9 @@ const SidebarEvents = () => {
                         </div>
                     )}
 
-                    {user.studentDetails && (
-                        <div className="w3-card w3-round w3-hide-small">
-                            <div className="w3-container" style={{ backgroundColor: 'rgba(161,1,53,0.8)', color: '#f0e7e7' }}>
-                                <p><i className="fa fa-university fa-fw w3-margin-right"></i>Your Student Information</p>
-                                <p>University: {user.studentDetails.university}</p>
-                                <p>Faculty: {user.studentDetails.faculty}</p>
-                                <p>Domain: {user.studentDetails.domain}</p>
-                                <p>Specialization: {user.studentDetails.specialization}</p>
-                                <p>Year: {user.studentDetails.year}</p>
-                                <p>Group: {user.studentDetails.group}</p>
-                                <p>Semigroup: {user.studentDetails.semigroup}</p>
-                            </div>
+                    {isStudent && (
+                        <div className="w3-card w3-round">
+                            You are a student
                         </div>
                     )}
 
@@ -178,7 +185,7 @@ const SidebarEvents = () => {
                             </button>
                             {activeSection === 'Demo3' && (
                                 <div className="w3-show w3-container" style={{ backgroundColor: '#f0e7e7' }}>
-                                    <MedicalInfoComponent medicalInfo={user.medicalInfo} />
+                                    <MedicalInfoComponent username={user.personLogInfo.username} />
                                 </div>
                             )}
                             <button onClick={() => toggleSection('Demo4')} className="w3-button w3-block w3-left-align" style={{ backgroundColor: 'rgba(161,1,53,0.8)', color: '#f0e7e7' }}>

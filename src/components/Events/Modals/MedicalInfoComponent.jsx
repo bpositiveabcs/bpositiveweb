@@ -45,7 +45,7 @@ const MedicalInfoComponent = ({ username }) => {
             <ul>
                 {medicalHistory.map((test, index) => (
                     <li key={index}>
-                        <button onClick={() => downloadBloodTestDocument(username, test.path)}>{test.name}</button>
+                        <button onClick={() => downloadBloodTestDocument(username, test.name)}>{test.name}</button>
                     </li>
                 ))}
             </ul>

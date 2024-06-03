@@ -231,3 +231,29 @@ export const downloadBloodTestDocument = (username, filename) => {
     const filePath = `${API_URL}/personActorService/download/${username}/${filename}`;
     window.location.href = filePath;
 };
+export const checkIfStudent = async (username) => {
+    try {
+        const response = await fetch(`${API_URL}/personActorService/students/username?username=${username}`);
+        if (!response.ok) {
+            throw new Error('Failed to check student status');
+        }
+        const data = await response.json();
+        return data ? data : null;
+    } catch (error) {
+        console.error('Error checking student status:', error);
+        throw error;
+    }
+};
+export const getEventsDTO = async () => {
+    try {
+        const response = await fetch(`${API_URL}/events-dto`);
+        if (!response.ok) {
+            throw new Error('Failed to fetch events');
+        }
+        const data = await response.json(); // Convert the response to JSON
+        return data;
+    } catch (error) {
+        console.error('Error fetching events:', error);
+        throw error;
+    }
+};
