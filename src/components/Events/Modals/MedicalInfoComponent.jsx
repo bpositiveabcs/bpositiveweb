@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getMedicalInfo, downloadBloodTestDocument } from '../services/apiService';
+import { getMedicalInfo, downloadBloodTestDocument } from '../../services/apiService';
 
 const MedicalInfoComponent = ({ username }) => {
     const [medicalInfo, setMedicalInfo] = useState(null);
