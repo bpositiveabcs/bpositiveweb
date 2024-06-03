@@ -140,15 +140,7 @@ export const getCoupons = async () => {
     }
 };
 
-export const getMedicalInfo = async () => {
-    try {
-        const response = await axios.get(`${API_URL}/medical-info`);
-        return response.data;
-    } catch (error) {
-        console.error('Error fetching medical information:', error);
-        throw error;
-    }
-};
+
 
 // Auth APIs
 export const signIn = async (credentials) => {
@@ -218,4 +210,24 @@ export const connectWebSocket = (onMessage) => {
     };
 
     return socket;
+};
+
+//////////////////////////////////////////////////////
+//MedicalInfo
+export const getMedicalInfo = async (username) => {
+    try {
+        const response = await fetch(`${API_URL}/personActorService/medicalInfo/${username}`);
+        if (!response.ok) {
+            throw new Error('Failed to fetch medical information');
+        }
+        return await response.json();
+    } catch (error) {
+        console.error('Error fetching medical information:', error);
+        throw error;
+    }
+};
+
+export const downloadBloodTestDocument = (username, filename) => {
+    const filePath = `${API_URL}/personActorService/download/${username}/${filename}`;
+    window.location.href = filePath;
 };
