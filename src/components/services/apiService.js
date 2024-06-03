@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 const API_URL = 'http://localhost:55555'; // Replace with your actual API URL
-const WS_URL = 'htttp://localhost:55555/client-websocket'; // Replace with your actual WebSocket URL
 
 // Event APIs
 export const getEvents = async () => {
@@ -14,8 +13,7 @@ export const getEvents = async () => {
     }
 };
 
-//update Profile
-//
+// Update Profile
 export const updateProfile = async (formData) => {
     const formDataToSend = new FormData();
     Object.keys(formData).forEach(key => {
@@ -34,21 +32,32 @@ export const updateProfile = async (formData) => {
         return { ok: false };
     }
 };
+
 export const uploadStudentDetails = async (formData) => {
-    return await fetch('/api/upload', {
-        method: 'POST',
-        body: formData
-    });
+    try {
+        const response = await fetch(`${API_URL}/api/upload`, {
+            method: 'POST',
+            body: formData
+        });
+        return response;
+    } catch (error) {
+        console.error('Error:', error);
+        return { ok: false };
+    }
 };
 
 export const verifyCode = async (payload) => {
-    return await fetch('/api/verifyCode', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(payload)
-    });
+    try {
+        const response = await fetch(`${API_URL}/api/verifyCode`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+        return response.json();
+    } catch (error) {
+        console.error('Error:', error);
+        throw error;
+    }
 };
 
 export const getUserByUsername = async (username) => {
@@ -61,16 +70,17 @@ export const getUserByUsername = async (username) => {
     }
 };
 
-
-
-
-// Function to send selected coupons and user to the backend
 export const submitSelectedCoupons = async (username, selectedCoupons) => {
-    const response = await axios.post(`${API_URL}/retrieved-coupons/list-coupons`, {
-        username: username,
-        couponList: selectedCoupons
-    });
-    return response.data;
+    try {
+        const response = await axios.post(`${API_URL}/retrieved-coupons/list-coupons`, {
+            username: username,
+            couponList: selectedCoupons
+        });
+        return response.data;
+    } catch (error) {
+        console.error('Error submitting coupons:', error);
+        throw error;
+    }
 };
 
 export const uploadIdentityCard = async (identityCard) => {
@@ -82,7 +92,6 @@ export const uploadIdentityCard = async (identityCard) => {
             method: 'POST',
             body: formDataToSend
         });
-
         return response;
     } catch (error) {
         console.error('Error:', error);
@@ -90,15 +99,11 @@ export const uploadIdentityCard = async (identityCard) => {
     }
 };
 
-
-
 export const joinEvent = async (event, username) => {
     try {
         const response = await fetch(`${API_URL}/events/join-event?username=${username}`, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(event),
         });
 
@@ -113,7 +118,6 @@ export const joinEvent = async (event, username) => {
         return null;
     }
 };
-
 
 // User APIs
 export const getUser = async () => {
@@ -147,7 +151,6 @@ export const getMedicalInfo = async () => {
 };
 
 // Auth APIs
-///login
 export const signIn = async (credentials) => {
     try {
         const response = await axios.post(`${API_URL}/personActorService/login`, null, {
@@ -168,9 +171,7 @@ export const getCouponsAvailable = async () => {
         console.error('Error fetching coupons:', error);
         throw error;
     }
-
-}
-
+};
 
 export const signUp = async (userInfo) => {
     try {
@@ -194,11 +195,11 @@ export const logout = async () => {
         console.error('Error logging out:', error);
         throw error;
     }
-
 };
+
 // WebSocket connection
 export const connectWebSocket = (onMessage) => {
-    const socket = new WebSocket(WS_URL);
+    const socket = new WebSocket(`${API_URL}/client-websocket`);
 
     socket.onopen = () => {
         console.log('WebSocket connection established');

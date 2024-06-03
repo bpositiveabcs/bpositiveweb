@@ -72,15 +72,9 @@ const SidebarEvents = () => {
                                     group: document.getElementById('group').value,
                                     semigroup: document.getElementById('semigroup').value,
                                 };
-                                const response = await fetch('/api/verifyCode', {
-                                    method: 'POST',
-                                    headers: { 'Content-Type': 'application/json' },
-                                    body: JSON.stringify(payload)
-                                });
-                                const result = await response.json();
+                                const response = await verifyCode(payload);
                                 const messageDiv = document.getElementById('message');
-                                
-                                if (result.success) {
+                                if (response.success) {
                                     messageDiv.innerText = 'Verification successful!';
                                     setTimeout(() => {
                                         window.close();

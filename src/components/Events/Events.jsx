@@ -6,7 +6,6 @@ import Navbar from '../Common/Navbar';
 import SidebarEvents from './SidebarEvents';
 import Footer from '../Common/Footer';
 import { AuthContext } from '../../contexts/AuthContexts';
-import '../../assets/CSS/Events.css'; // Import the CSS file
 
 const Events = () => {
     const [events, setEvents] = useState([]);
@@ -67,7 +66,7 @@ const Events = () => {
                     <div className="w3-col m3">
                         {isAuthenticated && <SidebarEvents user={user} />}
                     </div>
-                    <div className="w3-col m9">
+                    <div className="w3-col m9 content">
                         <h2>Event List</h2>
                         {events.map((event) => (
                             <EventDescription key={event.id} event={event} user={user} isAuthenticated={isAuthenticated} />
