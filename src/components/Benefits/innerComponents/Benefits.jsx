@@ -5,7 +5,7 @@ const Benefits = () => {
 
     return (
         <div>
-            <div className="w3-container" style={{ padding: '128px 16px', backgroundColor: '#f0e7e7' }} id="about">
+            <div className="w3-container" style={{ padding: '128px 16px', backgroundColor: '#f0e7e7', fontSize:'16px' }} id="about">
                 <h3 className="w3-center" style={{ marginBottom: '70px' }}>BENEFITS</h3>
                 <div className="w3-row-padding">
                     <div className="w3-third w3-container w3-margin-bottom">

@@ -5,7 +5,7 @@ const About = () => (
         <h3 className="w3-center">ABOUT US</h3>
         <p className="w3-center w3-large">Key features of our project</p>
         <div className="w3-row-padding w3-center" style={{ marginTop: '64px' }}>
-            <div className="w3-quarter">
+            <div className="w3-quarter" >
                 <i className="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i>
                 <p className="w3-large">Technology Driving Change</p>
                 <p>Harness the power of technology to revolutionize blood donation. Our app integrates cutting-edge
