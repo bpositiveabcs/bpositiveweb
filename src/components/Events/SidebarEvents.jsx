@@ -58,33 +58,34 @@ const SidebarEvents = () => {
                             <button type="submit">Verify</button>
                         </form>
                         <div id="message"></div>
-                        <script>
-                            document.getElementById('verificationForm').onsubmit = async function(event) {
-                                event.preventDefault();
-                                const code = document.getElementById('verificationCode').value;
-                                const payload = {
-                                    code,
-                                    university: document.getElementById('university').value,
-                                    faculty: document.getElementById('faculty').value,
-                                    domain: document.getElementById('domain').value,
-                                    specialization: document.getElementById('specialization').value,
-                                    year: document.getElementById('year').value,
-                                    group: document.getElementById('group').value,
-                                    semigroup: document.getElementById('semigroup').value,
-                                };
-                                const response = await verifyCode(payload);
-                                const messageDiv = document.getElementById('message');
-                                if (response.success) {
-                                    messageDiv.innerText = 'Verification successful!';
-                                    setTimeout(() => {
-                                        window.close();
-                                        window.opener.location.reload();
-                                    }, 2000);
-                                } else {
-                                    messageDiv.innerText = 'Invalid code. Please try again.';
-                                }
-                            };
-                        </script>
+                        //
+                        // <script>
+                        //     document.getElementById('verificationForm').onsubmit = async function(event) {
+                        //         event.preventDefault();
+                        //         const code = document.getElementById('verificationCode').value;
+                        //         const payload = {
+                        //             code,
+                        //             university: document.getElementById('university').value,
+                        //             faculty: document.getElementById('faculty').value,
+                        //             domain: document.getElementById('domain').value,
+                        //             specialization: document.getElementById('specialization').value,
+                        //             year: document.getElementById('year').value,
+                        //             group: document.getElementById('group').value,
+                        //             semigroup: document.getElementById('semigroup').value,
+                        //         };
+                        //         const response = await verifyCode(payload);
+                        //         const messageDiv = document.getElementById('message');
+                        //         if (response.success) {
+                        //             messageDiv.innerText = 'Verification successful!';
+                        //             setTimeout(() => {
+                        //                 window.close();
+                        //                 window.opener.location.reload();
+                        //             }, 2000);
+                        //         } else {
+                        //             messageDiv.innerText = 'Invalid code. Please try again.';
+                        //         }
+                        //     };
+                        // </script>
                     </body>
                 </html>
             `);

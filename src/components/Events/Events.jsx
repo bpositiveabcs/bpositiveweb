@@ -6,6 +6,7 @@ import Navbar from '../Common/Navbar';
 import SidebarEvents from './SidebarEvents';
 import Footer from '../Common/Footer';
 import { AuthContext } from '../../contexts/AuthContexts';
+import '../../assets/CSS/Events.css'; // Import the CSS file
 
 const Events = () => {
     const [events, setEvents] = useState([]);
