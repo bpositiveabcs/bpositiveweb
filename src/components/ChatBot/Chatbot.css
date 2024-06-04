@@ -11,6 +11,15 @@
     height: 60px;
     font-size: 20px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.chatbot-toggle-button:hover {
+    background-color: #d40070;
 }
 
 .chatbot-container {
@@ -32,17 +41,17 @@
     overflow-y: auto;
     margin-bottom: 10px;
 }
+
 .user p {
-    background-color: #DCF8C6; /* Verde pal */
+    background-color: #DCF8C6;
     align-self: flex-end;
     margin-left: auto;
     border: 1px solid #ccc;
     color: #000;
 }
 
-/* Stil pentru mesajele trimise de chatbot */
 .bot p {
-    background-color: #F1F0F0; /* Gri deschis */
+    background-color: #F1F0F0;
     align-self: flex-start;
     margin-right: auto;
     border: 1px solid #ccc;

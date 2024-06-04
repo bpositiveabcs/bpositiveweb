@@ -1,25 +1,24 @@
-// components/ChatBot/Chatbot.js
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faComments } from '@fortawesome/free-solid-svg-icons';
 import './Chatbot.css'; // Ensure this CSS file styles both the button and the chatbot
 
 const Chatbot = () => {
     const [message, setMessage] = useState('');
-    const [chat, setChat] = useState([]); // Initialize as an empty array
+    const [chat, setChat] = useState([]);
     const [error, setError] = useState('');
-    const [isOpen, setIsOpen] = useState(false); // State to control visibility
+    const [isOpen, setIsOpen] = useState(false);
 
     const handleSendMessage = async () => {
-        if (!message.trim()) return; // Don't send empty messages
-        setError(''); // Reset error before sending a new message
+        if (!message.trim()) return;
+        setError('');
 
         const userMessage = { sender: 'user', text: message };
 
         try {
-            const res = await fetch('http://localhost:55555/chatbot', {
+            const res = await fetch('http://localhost:5000/chatbot', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ message }),
             });
 
@@ -30,8 +29,8 @@ const Chatbot = () => {
             const data = await res.json();
             const botResponse = { sender: 'bot', text: data.response };
 
-            setChat([...chat, userMessage, botResponse]); // Append new messages to chat
-            setMessage(''); // Clear the input field
+            setChat([...chat, userMessage, botResponse]);
+            setMessage('');
         } catch (error) {
             console.error('Error sending message:', error);
             setError('Failed to send message. Please try again.');
@@ -40,13 +39,13 @@ const Chatbot = () => {
     };
 
     const toggleChatbot = () => {
-        setIsOpen(!isOpen); // Toggle the chatbot window visibility
+        setIsOpen(!isOpen);
     };
 
     return (
         <div>
             <button className="chatbot-toggle-button" onClick={toggleChatbot}>
-                {isOpen ? 'Close' : 'BHelp'}
+                <FontAwesomeIcon icon={faComments} />
             </button>
             {isOpen && (
                 <div className="chatbot-container">

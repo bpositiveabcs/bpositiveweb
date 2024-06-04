@@ -15,6 +15,7 @@ const CouponsModal = ({ onClose }) => {
                 setCoupons(data);
             } catch (error) {
                 console.error('Error fetching coupons:', error);
+
             }
         };
 

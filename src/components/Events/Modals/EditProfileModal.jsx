@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import { updateProfile } from '../../services/apiService'; // Ensure the correct path
 
 const EditProfileModal = ({ onClose, user }) => {
     const [formData, setFormData] = useState({
@@ -44,7 +44,7 @@ const EditProfileModal = ({ onClose, user }) => {
         }
 
         try {
-            const response = await axios.put('/persons', updatedData);
+            const response = await updateProfile(updatedData);
             if (response.status === 200) {
                 alert('Profile updated successfully');
                 onClose();

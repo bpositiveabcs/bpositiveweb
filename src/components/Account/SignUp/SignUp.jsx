@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Section1 from '../SignUp/Sections/Section1.jsx';
 import Section2 from '../SignUp/Sections/Section2.jsx';
 import Section3 from '../SignUp/Sections/Section3.jsx';
@@ -33,6 +33,7 @@ const SignUp = () => {
         bloodRh: '',  // Make sure this matches the field name expected on the server
         eligibility: ''
     });
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -52,9 +53,11 @@ const SignUp = () => {
         try {
             const response = await signUp(formData);
             console.log('Sign up successful:', response);
+            navigate('/signin'); // Redirect to the sign-in page after successful sign-up
             // Handle successful sign-up (e.g., redirect to login page)
         } catch (error) {
             console.error('Sign up failed:', error);
+            alert('Sign up failed');
             // Handle error (e.g., display error message)
         }
     };

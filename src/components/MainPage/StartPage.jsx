@@ -47,6 +47,25 @@ const A = styled(Link)`
     }
 `;
 
+const FAQs = () => {
+    const randomFAQs = [
+        "Why should I donate blood?",
+        "Who can donate blood?",
+        "How often can I donate blood?"
+    ];
+
+    return (
+        <div className="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <ul>
+                {randomFAQs.map((faq, index) => (
+                    <li key={index}>{faq}</li>
+                ))}
+            </ul>
+        </div>
+    );
+};
+
 const StartPage = () => {
     const { isAuthenticated } = useContext(AuthContext);
 
@@ -64,6 +83,7 @@ const StartPage = () => {
                     )}
                 </Ul>
             </Nav>
+            <FAQs />
         </BodyPage>
     );
 };
